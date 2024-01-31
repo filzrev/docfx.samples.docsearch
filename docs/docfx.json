@@ -47,7 +47,8 @@
         "apiKey": "599cec31baffa4868cae4e79f180729b", // This appId/apiKey is publicly available for testing. (https://docsearch.algolia.com/docs/DocSearch-v3#testing)
         "indexName": "docsearch",
       },
-      "pdf": true
+      "pdf": true,
+      "_noindex": true
     }
   }
 }
