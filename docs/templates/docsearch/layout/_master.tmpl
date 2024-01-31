@@ -18,6 +18,10 @@
       <link rel="icon" href="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicon.ico{{/_appFaviconPath}}">
       <link rel="stylesheet" href="{{_rel}}public/docfx.min.css">
       <link rel="stylesheet" href="{{_rel}}public/main.css">
+    {{#_docSearch.enabled}}
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
+      <link rel="preconnect" href="https://{{_docSearch.appId}}-dsn.algolia.net" crossorigin />
+    {{/_docSearch.enabled}}
       <meta name="docfx:navrel" content="{{_navRel}}">
       <meta name="docfx:tocrel" content="{{_tocRel}}">
       {{#_noindex}}<meta name="searchOption" content="noindex">{{/_noindex}}
@@ -77,6 +81,12 @@
                 <input class="form-control" id="search-query" type="search" disabled placeholder="{{__global.search}}" autocomplete="off" aria-label="Search">
               </form>
               {{/_enableSearch}}
+              {{#_docSearch.enabled}}
+              <form class="search" role="search" id="search">
+                <div id="docsearch"></div>
+              </form>
+              {{/_docSearch.enabled}}
+
             </div>
           </div>
         </div>
@@ -144,6 +154,18 @@
         </div>
       </div>
     </footer>
+
+    {{#_docSearch.enabled}}
+    <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+    <script>
+      docsearch({
+        container: "{{_docSearch.container}}",
+        appId: "{{_docSearch.appId}}",
+        indexName: "{{_docSearch.indexName}}",
+        apiKey: "{{_docSearch.apiKey}}",
+      });
+    </script>
+    {{/_docSearch.enabled}}
   </body>
   {{/redirect_url}}
 </html>

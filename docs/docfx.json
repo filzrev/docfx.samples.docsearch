@@ -39,7 +39,14 @@
     "globalMetadata": {
       "_appName": "",
       "_appTitle": "",
-      "_enableSearch": true,
+      "_enableSearch": false,
+      "_docSearch": {
+        "enabled": true,
+        "container": "#docsearch",
+        "appId": "R2IYF7ETH7",
+        "apiKey": "599cec31baffa4868cae4e79f180729b", // This appId/apiKey is publicly available for testing. (https://docsearch.algolia.com/docs/DocSearch-v3#testing)
+        "indexName": "docsearch",
+      },
       "pdf": true
     }
   }
